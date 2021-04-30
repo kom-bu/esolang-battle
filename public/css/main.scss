@@ -228,3 +228,41 @@ textarea.code {
   margin-left: initial;
   margin-right: initial;
 }
+
+// Dark theme for TSG LIVE!
+
+$live-theme-black: #161616;
+$live-theme-dark-red: #952826;
+$live-theme-light-red: #ff7976;
+$live-theme-white: white;
+$live-theme-old-blue: #607d8b;
+
+body {
+  background-color: $live-theme-black;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, li, .table {
+  color: $live-theme-white;
+}
+
+a {
+  color: $live-theme-light-red;
+}
+
+.page-link { // white background
+  color: $live-theme-dark-red;
+}
+
+.btn-primary {
+  background-color: $live-theme-light-red;
+  border-color: $live-theme-light-red;
+}
+
+.btn-primary:hover {
+  background-color: $live-theme-dark-red;
+  border-color: $live-theme-dark-red;
+}
+
+.jumbotron {
+  background-color: $live-theme-old-blue;
+}
