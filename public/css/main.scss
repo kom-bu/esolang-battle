@@ -261,6 +261,11 @@ a:hover {
   color: $live-theme-dark-red;
 }
 
+.page-item.active .page-link {
+  background-color: $live-theme-light-red;
+  border-color: $live-theme-light-red;
+}
+
 .btn-primary {
   background-color: $live-theme-light-red;
   border-color: $live-theme-light-red;
