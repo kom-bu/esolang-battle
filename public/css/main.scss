@@ -249,7 +249,11 @@ a {
   color: $live-theme-light-red;
 }
 
-.page-link { // white background
+a:hover {
+  color: $live-theme-dark-red;
+}
+
+.page-link, .page-link:hover { // white background
   color: $live-theme-dark-red;
 }
 
@@ -258,9 +262,9 @@ a {
   border-color: $live-theme-light-red;
 }
 
-.btn-primary:hover {
-  background-color: $live-theme-dark-red;
-  border-color: $live-theme-dark-red;
+.btn-primary:hover, .btn-primary:active {
+  background-color: $live-theme-dark-red !important;
+  border-color: $live-theme-dark-red !important;
 }
 
 .jumbotron {
