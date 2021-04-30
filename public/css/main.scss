@@ -245,6 +245,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, li, .table {
   color: $live-theme-white;
 }
 
+tr.table-success > td, tr.table-warning > td {
+  color: $live-theme-black;
+}
+
 a {
   color: $live-theme-light-red;
 }
@@ -262,7 +266,7 @@ a:hover {
   border-color: $live-theme-light-red;
 }
 
-.btn-primary:hover, .btn-primary:active {
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
   background-color: $live-theme-dark-red !important;
   border-color: $live-theme-dark-red !important;
 }
