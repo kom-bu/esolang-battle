@@ -13,7 +13,7 @@ mongoose.Promise = global.Promise;
 
 	await User.updateMany({admin: true}, {$set: {admin: false}});
 
-	for (const id of ['__fiord', 'gh_end_', 'hideo54', 'naan112358', 'n4o847']) {
+	for (const id of ['hideo54']) {
 		const user = await User.findOne({email: `${id}@twitter.com`});
 		if (user) {
 			user.admin = true;
@@ -27,24 +27,7 @@ mongoose.Promise = global.Promise;
 			name: 'Hello Contest',
 			id: 'hello',
 			start: new Date('2020-09-15T00:00:00+0900'),
-			end: new Date('2020-09-21T11:00:00+0900'),
-			description: {
-				ja: stripIndent`
-				"hello" と出力せよ。
-				`,
-				en: '',
-			},
-		},
-		{upsert: true},
-	);
-
-	await Contest.updateOne(
-		{id: 'hello2'},
-		{
-			name: 'Hello Contest 2',
-			id: 'hello2',
-			start: new Date('2020-09-15T00:00:00+0900'),
-			end: new Date('2020-09-20T09:00:00+0900'),
+			end: new Date('2022-09-21T11:00:00+0900'),
 			description: {
 				ja: stripIndent`
 				"hello" と出力せよ。
@@ -61,7 +44,7 @@ mongoose.Promise = global.Promise;
 			name: '五月祭2020 Live CodeGolf Contest Day1',
 			id: 'mayfes2020-day1',
 			start: new Date('2020-09-20T14:03:00+0900'),
-			end: new Date('2020-09-20T15:18:00+0900'),
+			end: new Date('2022-09-20T15:18:00+0900'),
 			description: {
 				ja: stripIndent`
 				\`\`\`
@@ -94,96 +77,6 @@ mongoose.Promise = global.Promise;
 				### 出力
 				\`\`\`
 				11100000011100000111100010
-				\`\`\`
-			`,
-				en: '',
-			},
-		},
-		{upsert: true},
-	);
-
-	await Contest.updateOne(
-		{id: 'mayfes2020-day2'},
-		{
-			name: '五月祭2020 Live CodeGolf Contest Day2',
-			id: 'mayfes2020-day2',
-			start: new Date('2020-09-21T12:03:00+0900'),
-			end: new Date('2020-09-21T13:18:00+0900'),
-			description: {
-				ja: stripIndent`
-				\`\`\`
-				それ以前のどの数値よりも真に小さいか判定せよ
-				\`\`\`
-				Szkiくんは甘いものに目がなく、毎日おやつを食べていました。
-				しかし最近Szkiくんは太ってしまったので、ダイエットのためおやつに制限を設けることにしました。
-				制限は、「その日のおやつのカロリーが以前のおやつたちのカロリーのいずれよりも真に小さいとき、おやつを食べる」というものです。
-				今日から50日ぶんのおやつのカロリーが2桁の数値で与えられるので、Szkiくんがおやつを食べた日は1、食べなかった日は0を出力してください。
-				## 入力
-				* 2桁の数値(\`10\`以上\`99\`以下)が50個、改行区切りで与えられる。
-				* 入力の最後には改行が付与される。
-				## 出力
-				* 与えられた数値それぞれについて、それ以前に与えられた数値のいずれよりも真に小さいとき1、そうでないとき0を出力せよ。
-				## 制約
-				* 同じ数値は2度出現しない。
-				* 入力の数値は10以上99以下である。
-				* 初日については1を出力すること。
-				## 入出力例
-				### 入力1
-				\`\`\`
-				88
-				18
-				21
-				41
-				55
-				46
-				64
-				58
-				67
-				86
-				89
-				28
-				72
-				12
-				77
-				83
-				93
-				61
-				23
-				15
-				53
-				34
-				35
-				81
-				96
-				10
-				76
-				82
-				19
-				51
-				49
-				47
-				59
-				84
-				24
-				87
-				71
-				33
-				20
-				94
-				45
-				56
-				90
-				39
-				85
-				50
-				40
-				26
-				69
-				68
-				\`\`\`
-				### 出力1
-				\`\`\`
-				11000000000001000000000001000000000000000000000000
 				\`\`\`
 			`,
 				en: '',
