@@ -255,6 +255,10 @@ $live-theme-old-blue: #607d8b;
 
   a {
     color: $live-theme-light-red;
+    .bg-danger & {
+      color: white;
+      text-decoration: underline;
+    }
   }
 
   a:hover {
