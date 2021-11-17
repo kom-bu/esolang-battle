@@ -356,7 +356,8 @@ class App extends React.Component {
 								{this.state.message}
 								{this.state.messageDetail && (
 									<>
-										Check out the detail
+										{' '}
+										Check out the detail{' '}
 										<a
 											href={`/contests/${this.contestId}/submissions/${this.state.messageDetail}`}
 											target="_blank" rel="noopener noreferrer"
