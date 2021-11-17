@@ -231,51 +231,56 @@ textarea.code {
 
 // Dark theme for TSG LIVE!
 
-$live-theme-black: #161616;
+$live-theme-black: #111111;
 $live-theme-dark-red: #952826;
 $live-theme-light-red: #ff7976;
 $live-theme-white: white;
 $live-theme-old-blue: #607d8b;
 
-body {
-  background-color: $live-theme-black;
-}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: $live-theme-black;
+  }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, li, label, .table {
-  color: $live-theme-white;
-}
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, li, label, .table {
+    color: $live-theme-white;
+    .modal-dialog :is(&) {
+      color: $live-theme-black;
+    }
+  }
 
-tr.table-success > td, tr.table-warning > td {
-  color: $live-theme-black;
-}
+  tr.table-success > td, tr.table-warning > td {
+    color: $live-theme-black;
+  }
 
-a {
-  color: $live-theme-light-red;
-}
+  a {
+    color: $live-theme-light-red;
+  }
 
-a:hover {
-  color: $live-theme-dark-red;
-}
+  a:hover {
+    color: $live-theme-dark-red;
+  }
 
-.page-link, .page-link:hover { // white background
-  color: $live-theme-dark-red;
-}
+  .page-link, .page-link:hover { // white background
+    color: $live-theme-dark-red;
+  }
 
-.page-item.active .page-link {
-  background-color: $live-theme-light-red;
-  border-color: $live-theme-light-red;
-}
+  .page-item.active .page-link {
+    background-color: $live-theme-light-red;
+    border-color: $live-theme-light-red;
+  }
 
-.btn-primary {
-  background-color: $live-theme-light-red;
-  border-color: $live-theme-light-red;
-}
+  .btn-primary {
+    background-color: $live-theme-light-red;
+    border-color: $live-theme-light-red;
+  }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background-color: $live-theme-dark-red !important;
-  border-color: $live-theme-dark-red !important;
-}
+  .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    background-color: $live-theme-dark-red !important;
+    border-color: $live-theme-dark-red !important;
+  }
 
-.jumbotron {
-  background-color: $live-theme-old-blue;
+  .jumbotron {
+    background-color: $live-theme-old-blue;
+  }
 }
