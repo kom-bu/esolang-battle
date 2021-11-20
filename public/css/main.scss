@@ -242,7 +242,7 @@ $live-theme-old-blue: #607d8b;
     background-color: $live-theme-black;
   }
 
-  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, li, label, .table {
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, li, label, .table, input[type=file] {
     color: $live-theme-white;
     .modal-dialog :is(&) {
       color: $live-theme-black;
