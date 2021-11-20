@@ -249,8 +249,10 @@ $live-theme-old-blue: #607d8b;
     }
   }
 
-  tr.table-success > td, tr.table-warning > td {
-    color: $live-theme-black;
+  tr.table-success, tr.table-warning, tr.table-danger {
+    & > td {
+      color: $live-theme-black;
+    }
   }
 
   a {
