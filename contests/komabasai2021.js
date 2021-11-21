@@ -35,11 +35,10 @@ module.exports.getPrecedingIndices = (cellIndex) => {
 
 const tsg = 'TSG';
 const kmc = 'KMC';
-const maxLineNum = 32;
+const lineNum = 31;
 
 module.exports.generateInput = () => {
 	const [majority, minority] = shuffle([tsg, kmc]);
-	const lineNum = sample(range(1, maxLineNum + 1));
 	const minorityNum = sample(range(0, (lineNum - 1) / 2));
 	const votes = shuffle((Array(minorityNum).fill(minority).concat(Array(lineNum - minorityNum).fill(majority))));
 	return `${votes.join('\n')}\n`;
