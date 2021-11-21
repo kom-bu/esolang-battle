@@ -39,7 +39,7 @@ const lineNum = 31;
 
 module.exports.generateInput = () => {
 	const [majority, minority] = shuffle([tsg, kmc]);
-	const minorityNum = sample(range(0, (lineNum - 1) / 2));
+	const minorityNum = sample(range(0, (lineNum + 1) / 2));
 	const votes = shuffle((Array(minorityNum).fill(minority).concat(Array(lineNum - minorityNum).fill(majority))));
 	return `${votes.join('\n')}\n`;
 };
