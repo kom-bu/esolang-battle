@@ -33,24 +33,24 @@ module.exports.getPrecedingIndices = (cellIndex) => {
 	);
 };
 
-const tsg = 'TSG';
-const kmc = 'KMC';
-const lineNum = 31;
+const tsg = 'T';
+const kmc = 'K';
+const lineLen = 3;
+const lineNum = 47
 
-module.exports.generateInput = () => {
-	const [majority, minority] = shuffle([tsg, kmc]);
-	const minorityNum = sample(range(0, (lineNum + 1) / 2));
-	const votes = shuffle((Array(minorityNum).fill(minority).concat(Array(lineNum - minorityNum).fill(majority))));
-	return `${votes.join('\n')}\n`;
-};
+const generateVote = () => sample([tsg, kmc]);
+const generateLine = () => [...Array(lineLen)].map(generateVote).join('');
+module.exports.generateInput = () => [...Array(lineNum)].map(generateLine).join('\n') + '\n';
 
 module.exports.isValidAnswer = (input, output) => {
-	const tsgNum = (input.match(new RegExp(tsg, 'g')) || []).length;
-	const kmcNum = (input.match(new RegExp(kmc, 'g')) || []).length;
 
-	assert(tsgNum !== kmcNum);
-
-	const correctOutput = tsgNum > kmcNum ? tsg : kmc
+	const correctOutput = input.trim().split('\n').map(line => {
+		const tsgNum = (line.match(new RegExp(tsg, 'g')) || []).length;
+		const kmcNum = (line.match(new RegExp(kmc, 'g')) || []).length;
+		assert(tsgNum !== kmcNum);
+		return tsgNum > kmcNum ? tsg : kmc;
+	}).join('');
+	
 	const trimmedOutput = output.toString().replace(/\s/g, '');
 
 	console.log('info:', {input, correctOutput, output, trimmedOutput});
