@@ -22,44 +22,132 @@ mongoose.Promise = global.Promise;
 	}
 
 	await Contest.updateOne(
-		{id: 'mayfes2020-day1'},
+		{id: 'komabasai2021'},
 		{
-			name: '五月祭2020 Live CodeGolf Contest Day1',
-			id: 'mayfes2020-day1',
-			start: new Date('2020-09-20T14:03:00+0900'),
-			end: new Date('2022-09-20T15:18:00+0900'),
+			name: '駒場祭2021 Live CodeGolf Contest',
+			id: 'komabasai2021',
+			start: new Date('2021-11-23T14:05:00+0900'),
+			end: new Date('2021-11-23T15:55:00+0900'),
 			description: {
 				ja: stripIndent`
-				\`\`\`
-				大文字か小文字かを判定せよ。
-				\`\`\`
+				TSG LIVE! 6での東西対決から半年。我が国はTSG派とKMC派の二つに分かれ、混沌を極めていた！
+				あまりに壮絶なその争いに終止符を打つべく、政府は各都道府県に代表者を3名ずつ擁立し、多数決によって都道府県ごとに公認サークルを定めることを決定した。
+				政府御用達の凄腕プログラマであるあなたの任務は、各都道府県の代表者の投票結果を受け取って、それぞれの公認サークルを発表するプログラムを作ることである。
+				やることは自体はとても単純だ。ただし、開発したコードが長すぎると、TSGやKMCのハッカーにより発見、改ざんされる危険性がある。ハッカー達に見つからないために、できる限り短いプログラムを書いてほしい。
 				## 入力
-				* ラテン文字 A から Z の 26 文字が順番に、一行で与えられる。
-				* 各文字は大文字あるいは小文字である。
-				* 入力の最後には改行が付与される。
+				* 47行からなる。
+				* 各行はTとKのみからなる3文字の文字列である（Tのみ、Kのみの可能性もある）。
+				* 各行（最終行を含む）の末尾には、改行（\`\\n\`）が付与される。
 				## 出力
-				* 与えられた文字それぞれについて、大文字であれば \`1\` を、小文字であれば \`0\` を出力せよ。
-				* 出力された文字列に含まれる空白文字（改行含む）は無視される。
+				* 各行について、Tの数がKの数より多ければTと、Kの数がTの数より多ければKと出力せよ。
+				* 出力された文字列に含まれる空白文字（改行含む）は無視される。すなわち、各行ごとに結果を出力してもよいし、1行に結果をまとめて出力してもよい。
+				* 厳密には、JavaScriptの正規表現で \`/\\s/\` にマッチするすべての文字の違いは無視される。詳細は MDN Web Docs の [文字クラス](https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Regular_Expressions/Character_Classes) のページを参照のこと。
 				## 制約
-				* 入力には必ず大文字がひとつ以上、小文字がひとつ以上含まれる。
-				## お知らせ
-				今回はライブコードゴルフ完全初心者同士の対決なので、初心者に不親切な言語の資料と、ヒントを用意しました。
-				適宜活用してください。
-				### 言語
-				* Emoji：[https://github.com/n4o847/esolangs/wiki/Emoji](https://github.com/n4o847/esolangs/wiki/Emoji)
-				* PPAP：[https://github.com/n4o847/esolangs/wiki/PPAP](https://github.com/n4o847/esolangs/wiki/PPAP)
-				* \`><>\`：[https://github.com/n4o847/esolangs/wiki/Fish](https://github.com/n4o847/esolangs/wiki/Fish)
-				* Brainfuck：[https://github.com/n4o847/esolangs/wiki/Brainfuck](https://github.com/n4o847/esolangs/wiki/Brainfuck)
-				### ヒント
-				* ライブコードゴルフは早く出すことが正義で、そして一般にesoによるループは難しいです。愚直に26回書くことも検討してみては？
-				## 入出力例
-				### 入力
+				* 特になし
+				## 入力例
 				\`\`\`
-				ABCdefghiJKLmnopqRSTUvwxYz
+				TKK
+				KKT
+				TKK
+				KKT
+				KTT
+				KKK
+				KTK
+				TKT
+				KTK
+				TTK
+				KTK
+				TTT
+				TTK
+				KKT
+				TTK
+				KTK
+				KKK
+				TKK
+				KKT
+				KKT
+				KKT
+				KTT
+				KKK
+				TKK
+				KTT
+				TTK
+				TTT
+				TTT
+				TTK
+				TTK
+				TKT
+				TKT
+				KTT
+				KKT
+				TKK
+				KKT
+				TTK
+				KTT
+				TTK
+				TKK
+				KKT
+				KKK
+				TKT
+				TKT
+				KTT
+				KKT
+				TKK
 				\`\`\`
-				### 出力
+				## 出力例1
 				\`\`\`
-				11100000011100000111100010
+				K
+				K
+				K
+				K
+				T
+				K
+				K
+				T
+				K
+				T
+				K
+				T
+				T
+				K
+				T
+				K
+				K
+				K
+				K
+				K
+				K
+				T
+				K
+				K
+				T
+				T
+				T
+				T
+				T
+				T
+				T
+				T
+				T
+				K
+				K
+				K
+				T
+				T
+				T
+				K
+				K
+				K
+				T
+				T
+				T
+				K
+				K
+
+				\`\`\`
+				## 出力例2
+				\`\`\`
+				KKKKTKKTKTKTTKTKKKKKKTKKTTTTTTTTTKKKTTTKKKTTTKK
 				\`\`\`
 			`,
 				en: '',
