@@ -7,7 +7,7 @@ const User = require('../models/User');
 
 mongoose.Promise = global.Promise;
 
-const contestIds = ['mayfes2020-day1', 'mayfes2020-day2'];
+const contestIds = ['komabasai2021'];
 
 (async () => {
 	const oldConnection = mongoose.createConnection('mongodb://localhost:27017/esolang-battle-hideo54');

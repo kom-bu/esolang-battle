@@ -176,6 +176,11 @@ pre.hexdump {
       background-image: url('/img/contest/mayfes2020-day2-headline.svg');
     }
 
+    &.contest-komabasai2021 {
+      background-color: $md-green-500;
+      background-image: url('/img/contest/komabasai2021-headline.svg');
+    }
+
     &.contest-unknown {
       background-color: #050505;
       background-image: url('/img/contest/noise.png');
