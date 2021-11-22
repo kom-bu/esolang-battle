@@ -6,8 +6,8 @@ const shuffle = require('lodash/shuffle');
 const zip = require('lodash/zip');
 
 module.exports.getPrecedingIndices = (cellIndex) => {
-	const width = 5;
-	const height = 5;
+	const width = 4;
+	const height = 4;
 	assert(cellIndex >= 0);
 	assert(cellIndex < width * height);
 
@@ -15,22 +15,12 @@ module.exports.getPrecedingIndices = (cellIndex) => {
 	const y = Math.floor(cellIndex / width);
 
 	const precedingCells = [];
-	if (x - 1 >= 0) {
-		precedingCells.push(y * width + (x - 1));
-	}
-	if (x + 1 < width) {
-		precedingCells.push(y * width + (x + 1));
-	}
-	if (y - 1 >= 0) {
-		precedingCells.push((y - 1) * width + x);
-	}
-	if (y + 1 < height) {
-		precedingCells.push((y + 1) * width + x);
-	}
+	precedingCells.push(y * width + (x + 3) % width);
+	precedingCells.push(y * width + (x + 1) % width);
+	precedingCells.push(((y + 3) % height) * width + x);
+	precedingCells.push(((y + 1) % height) * width + x);
 
-	return precedingCells.filter(
-		(cell) => ![0, 4, 5, 9, 10, 14, 15, 19, 20, 24].includes(cell),
-	);
+	return precedingCells;
 };
 
 const tsg = 'T';

@@ -3,25 +3,24 @@ const flatten = require('lodash/flatten');
 const langsData = require('../langs.json');
 
 const languages = [
-	['', 'golfscript', 'brainfuck-esotope', 'bash-busybox', ''],
-	['', '', 'ruby', '', ''],
-	['', 'node', 'fish', 'python3', ''],
-	['', '', 'c-gcc', '', ''],
-	['', 'fernando', 'emoji', 'ppap', ''],
+	['jq', 'rust', '', 'crystal'],
+	['brainfuck-esotope', 'aheui', 'c-gcc', ''],
+	['', 'python3', 'produire', 'ocaml'],
+	['golang', '', 'csharp', 'bash-busybox'],
 ];
 
 module.exports = flatten(languages).map((language, index) => {
-	if (index === 6 || index === 18) {
+	if (index === 7 || index === 8) {
 		return {
 			type: 'base',
-			team: 1,
+			team: 1, // blue
 		};
 	}
 
-	if (index === 8 || index == 16) {
+	if (index === 2 || index == 13) {
 		return {
 			type: 'base',
-			team: 0,
+			team: 0, // red
 		};
 	}
 
