@@ -17,7 +17,7 @@ module.exports = flatten(languages).map((language, index) => {
 		};
 	}
 
-	if (index === 2 || index == 13) {
+	if (index === 2 || index === 13) {
 		return {
 			type: 'base',
 			team: 0, // red
