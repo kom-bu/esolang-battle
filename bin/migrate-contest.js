@@ -47,7 +47,7 @@ const contestIds = ['mayfes2020-day1', 'mayfes2020-day2'];
 		const existingUser = await NewUser.findOne({email: user.email});
 		const newTeams = await Promise.all(userObj.team.filter((team) => (
 			contestIds.includes(team.contest.id)
-		)).map(async (team) => { 
+		)).map(async (team) => {
 			team.contest = await NewContest.findOne({id: team.contest.id});
 			return team;
 		}));
@@ -106,6 +106,10 @@ const contestIds = ['mayfes2020-day1', 'mayfes2020-day2'];
 		for (const execution of await OldExecution.find({language: {$in: oldLanguages.map((language) => language._id)}}).populate('user').populate('language').exec()) {
 			const executionObj = execution.toJSON();
 			delete executionObj._id;
+
+			if (execution.user === null) {
+				continue;
+			}
 
 			const user = await NewUser.findOne({email: execution.user.email});
 			const language = await NewLanguage.findOne({

@@ -7,7 +7,7 @@ const util = require('util');
 const bodyParser = require('body-parser');
 const chalk = require('chalk');
 const compression = require('compression');
-const connectMongo = require('connect-mongo');
+const MongoStore = require('connect-mongo');
 const dotenv = require('dotenv');
 const dotenvExpand = require('dotenv-expand');
 const errorHandler = require('errorhandler');
@@ -20,13 +20,10 @@ const lusca = require('lusca');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const multer = require('multer');
-const sass = require('node-sass-middleware');
 const passport = require('passport');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-
-const MongoStore = connectMongo(session);
 
 /*
  * Load environment variables from .env file, where API keys and passwords are configured.
@@ -66,6 +63,7 @@ const upload = multer({
  */
 const app = express();
 const io = require('./lib/socket-io');
+const sassMiddleware = require('./lib/sass-middleware');
 
 /*
  * Connect to MongoDB.
@@ -89,12 +87,7 @@ app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.use(compression());
-app.use(
-	sass({
-		src: path.join(__dirname, 'public'),
-		dest: path.join(__dirname, 'public'),
-	}),
-);
+app.use(sassMiddleware);
 app.use(
 	webpackDevMiddleware(compiler, {publicPath: webpackConfig.output.publicPath}),
 );
@@ -110,8 +103,8 @@ app.use(
 		resave: true,
 		saveUninitialized: true,
 		secret: process.env.SESSION_SECRET,
-		store: new MongoStore({
-			url: process.env.MONGODB_URI || process.env.MONGOLAB_URI,
+		store: MongoStore.create({
+			mongoUrl: process.env.MONGODB_URI || process.env.MONGOLAB_URI,
 			autoReconnect: true,
 		}),
 	}),

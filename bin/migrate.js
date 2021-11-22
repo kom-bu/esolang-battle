@@ -149,7 +149,7 @@ mongoose.Promise = global.Promise;
 				\`\`\`
 				KKKKTKKTKTKTTKTKKKKKKTKKTTTTTTTTTKKKTTTKKKTTTKK
 				\`\`\`
-			`,
+				`,
 				en: '',
 			},
 		},

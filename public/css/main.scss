@@ -1,6 +1,6 @@
 @import "themes/default/variables";
 
-@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap/scss/bootstrap.scss";
 @import "node_modules/material-colors/dist/colors.sass";
 @import "lib/font-awesome/font-awesome";
 
@@ -88,13 +88,23 @@ pre.hexdump {
   color: darkgray;
 }
 
+a {
+  text-decoration: none;
+}
+
 .jumbotron-wrap {
   color: white;
 
   .jumbotron {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+
     background-color: $md-blue-grey-900;
     background-size: cover;
     background-position: center;
+    min-height: 20rem;
 
     &.contest-1 {
       background-color: $md-lime-700;
@@ -222,7 +232,7 @@ pre.hexdump {
 
 textarea.code {
   min-height: 8em;
-  font-family: monospace;
+  font-family: $font-family-monospace;
   font-size: 16px;
   word-break: break-all;
   overflow-wrap: normal;
@@ -232,6 +242,10 @@ textarea.code {
 .row {
   margin-left: initial;
   margin-right: initial;
+}
+
+.form-group {
+  margin: 1em 0;
 }
 
 // Dark theme for TSG LIVE!
@@ -247,15 +261,17 @@ $live-theme-old-blue: #607d8b;
     background-color: $live-theme-black;
   }
 
-  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, li, label, .table {
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, li, label, .table, input[type=file] {
     color: $live-theme-white;
     .modal-dialog :is(&) {
       color: $live-theme-black;
     }
   }
 
-  tr.table-success > td, tr.table-warning > td {
-    color: $live-theme-black;
+  tr.table-success, tr.table-warning, tr.table-danger {
+    & > td {
+      color: $live-theme-black;
+    }
   }
 
   a {
